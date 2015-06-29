@@ -12,10 +12,13 @@ libraryDependencies ++= Seq(
   ws,
   specs2 % Test,
 
-  "org.reactivecouchbase" %% "reactivecouchbase-core" % "0.3"
+  "org.reactivecouchbase" %% "reactivecouchbase-core" % "0.3",
+  "io.swagger" %% "swagger-scala-module" % "1.0.0",
+  "pl.matisoft" %% "swagger-play24" % "1.4"
 )
 
 resolvers ++= Seq(
+  "Local Maven"                at Path.userHome.asFile.toURI.toURL + ".m2/repository",
   "scalaz-bintray"             at "http://dl.bintray.com/scalaz/releases",
   "ReactiveCouchbase Releases" at "https://raw.github.com/ReactiveCouchbase/repository/master/releases/"
 )

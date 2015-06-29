@@ -14,3 +14,7 @@ GET        /realms                   @controllers.AggregatesController.realms
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file             @controllers.Assets.versioned(path="/public", file: Asset)
+
+
+GET        /api-docs.json            @pl.matisoft.swagger.ApiHelpController.getResources
+GET        /api-help                 @controllers.Application.swagger
