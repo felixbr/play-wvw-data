@@ -3,18 +3,22 @@
 # ~~~~
 
 # Home page
-GET        /                         @controllers.Application.index
+GET        /                                @controllers.Application.index
 
 # WvW Data
-GET        /matches                  @controllers.MatchesController.list
-GET        /match_details/:id        @controllers.MatchesController.details(id)
+GET        /matches                         @controllers.MatchesController.list
+GET        /match-details/:id               @controllers.MatchesController.details(id)
 
 # WvW Aggregates
-GET        /realms                   @controllers.AggregatesController.realms
+GET        /aggregates/realms               @controllers.AggregatesController.realms
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file             @controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file                    @controllers.Assets.versioned(path = "/public", file: Asset)
 
+# Swagger paths
+GET        /api-docs                        @controllers.Application.swagger
+GET        /api-docs.json                   @pl.matisoft.swagger.ApiHelpController.getResources
+GET        /api-docs.json/                  @pl.matisoft.swagger.ApiHelpController.getResources
 
-GET        /api-docs.json            @pl.matisoft.swagger.ApiHelpController.getResources
-GET        /api-help                 @controllers.Application.swagger
+GET        /api-docs.json/aggregates        @pl.matisoft.swagger.ApiHelpController.getResource(path = "/aggregates")
+GET        /api-docs.json/matches           @pl.matisoft.swagger.ApiHelpController.getResource(path = "/matches")

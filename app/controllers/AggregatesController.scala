@@ -3,14 +3,14 @@ package controllers
 import javax.inject.Inject
 
 import businesslogic.WorldMatchupAggregator
-import io.swagger.annotations.{ApiResponse, ApiResponses, ApiOperation, Api}
+import com.wordnik.swagger.annotations._
 import play.api.libs.json.Json
 import play.api.mvc._
 import services.MatchesService
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-@Api(value = "/aggregates")
+@Api(value = "/aggregates", description = "Route for aggregates")
 class AggregatesController @Inject() (
   matchesService: MatchesService,
   worldAggregator: WorldMatchupAggregator) extends Controller {

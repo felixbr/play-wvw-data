@@ -13,7 +13,6 @@ libraryDependencies ++= Seq(
   specs2 % Test,
 
   "org.reactivecouchbase" %% "reactivecouchbase-core" % "0.3",
-  "io.swagger" %% "swagger-scala-module" % "1.0.0",
   "pl.matisoft" %% "swagger-play24" % "1.4"
 )
 

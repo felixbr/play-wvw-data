@@ -4,8 +4,9 @@ import domain.aliases._
 import play.api.libs.json._
 import play.api.libs.json.Reads._
 import play.api.libs.functional.syntax._
+import com.wordnik.swagger.annotations._
 
-import scala.language.implicitConversions
+import scala.annotation.meta.field
 
 package object aliases {
   type MatchId = String
@@ -33,15 +34,15 @@ case class Match(
 )
 
 case class MatchDetails(
-  match_id: String,
-  scores: List[Int],
-  maps: Seq[MapDetails]
+                                               match_id: String,
+  @(ApiModelProperty @field)(dataType = "int") scores: Seq[Int],
+                                               maps: Seq[MapDetails]
 )
 
 case class MapDetails(
-  `type`: String,
-  scores: Seq[Int],
-  objectives: Seq[Objective]
+                                               `type`: String,
+  @(ApiModelProperty @field)(dataType = "int") scores: Seq[Int],
+                                               objectives: Seq[Objective]
 )
 
 case class Objective(
