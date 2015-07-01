@@ -23,7 +23,6 @@ object TeamColor {
   val WHITE = "White"
 }
 
-
 case class Match(
   wvw_match_id: MatchId,
   red_world_id: Int,

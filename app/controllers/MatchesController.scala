@@ -1,6 +1,5 @@
 package controllers
 
-import java.lang.annotation.Annotation
 import javax.inject.Inject
 
 import domain._
@@ -11,17 +10,18 @@ import services.{MatchDetailsService, MatchesService}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-@Api("/matches")
+@Api(value = "/matches", description = "Routes for matches")
 class MatchesController @Inject() (
   matches: MatchesService,
   matchDetails: MatchDetailsService) extends Controller {
 
   @ApiOperation(
     value = "List of matches",
-    httpMethod = "GET"
+    httpMethod = "GET",
+    response = classOf[Match]
   )
   @ApiResponses(Array(
-    new ApiResponse(code = 200, message = "List of matches")
+    new ApiResponse(code = 200, message = "OK")
   ))
   def list = Action.async {
     matches.fetch().map { list =>
@@ -38,7 +38,8 @@ class MatchesController @Inject() (
     new ApiImplicitParam(name = "id", value = "Match id", required = true, defaultValue = "2-2", paramType = "path")
   ))
   @ApiResponses(Array(
-    new ApiResponse(code = 200, message = "MatchDetails by id")
+    new ApiResponse(code = 200, message = "OK"),
+    new ApiResponse(code = 404, message = "Not Found")
   ))
   def details(id: String) = Action.async {
     matchDetails.fetchById(id).map { details =>
