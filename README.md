@@ -16,7 +16,7 @@ A webservice that proxies and aggregates data retrieved by the Guild Wars 2 WvW 
     
 This can take several minutes, so go grab a coffee. :)
 
-When it's finished, you can explore the api by opening http://localhost:9000.
+When it's finished, you can explore the api by opening [http://localhost:9000](http://localhost:9000).
 
 ### External Api Docs
 
