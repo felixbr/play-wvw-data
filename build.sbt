@@ -26,6 +26,8 @@ resolvers ++= Seq(
 // other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
 
+scalacOptions in Test += "-Dconfig.file=conf/application.test.conf"
+
 scalacOptions ++= Seq(
   "-deprecation",
   "-encoding", "UTF-8", // yes, this is 2 args

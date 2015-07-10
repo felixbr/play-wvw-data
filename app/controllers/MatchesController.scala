@@ -7,8 +7,10 @@ import com.wordnik.swagger.annotations._
 import play.api.libs.json._
 import play.api.mvc._
 import services.{MatchDetailsService, MatchesService}
+import utils.ErrorResponse
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.{Failure, Success}
 
 @Api(value = "/matches", description = "Routes for matches")
 class MatchesController @Inject() (
@@ -44,6 +46,8 @@ class MatchesController @Inject() (
   def details(id: String) = Action.async {
     matchDetails.fetchById(id).map { details =>
       Ok(Json.toJson(details))
+    } recover {
+      case _ => NotFound(Json.toJson(ErrorResponse(s"Couldn't find match for match_id $id")))
     }
   }
 
