@@ -18,6 +18,10 @@ This can take several minutes, so go grab a coffee. :)
 
 When it's finished, you can explore the api by opening [http://localhost:9000](http://localhost:9000).
 
+## Running the test suite
+
+    sbt test
+
 ### External Api Docs
 
 * [Guild Wars 2 API](https://forum-en.guildwars2.com/forum/community/api/API-Documentation)
