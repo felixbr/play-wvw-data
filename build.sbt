@@ -1,3 +1,11 @@
+import com.github.play2war.plugin._
+
+Play2WarPlugin.play2WarSettings
+
+Play2WarKeys.servletVersion := "3.1"
+
+Play2WarKeys.targetName := Some("app")
+
 name := """play-wvw-data"""
 
 version := "1.0-SNAPSHOT"
