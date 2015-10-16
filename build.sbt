@@ -8,11 +8,11 @@ Play2WarKeys.targetName := Some("app")
 
 name := """play-wvw-data"""
 
-version := "1.0-SNAPSHOT"
+version := "1.1"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
   jdbc,
@@ -21,7 +21,9 @@ libraryDependencies ++= Seq(
   specs2 % Test,
 
   "org.reactivecouchbase" %% "reactivecouchbase-core" % "0.3",
-  "pl.matisoft" %% "swagger-play24" % "1.4"
+  "pl.matisoft" %% "swagger-play24" % "1.4",
+  "org.sangria-graphql" %% "sangria" % "0.4.2",
+  "org.scalatestplus" %% "play" % "1.4.0-M3" % "test"
 )
 
 resolvers ++= Seq(
