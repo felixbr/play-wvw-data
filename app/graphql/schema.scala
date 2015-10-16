@@ -1,11 +1,12 @@
 package graphql
 
+import com.google.inject.ImplementedBy
 import domain._
 import sangria.schema._
 
 import scala.concurrent.Future
 
-
+@ImplementedBy(classOf[LiveWvWRepo])
 trait WvWRepo {
   def fetchMatchDetails(id: String): Future[MatchDetails]
 }
